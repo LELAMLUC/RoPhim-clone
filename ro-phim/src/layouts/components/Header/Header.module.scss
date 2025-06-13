@@ -1,0 +1,44 @@
+.wrapper {
+  height: 90px;
+  padding: 0 20px;
+}
+
+.inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.left-section {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex: 1;
+}
+.label-new {
+  display: inline-block;
+  background-color: var(--primary);
+  color: var(--black);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 4px;
+  margin-right: 6px;
+  border-radius: 3px;
+  vertical-align: text-top;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.right-section {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  height: 40px;
+  width: auto;
+}
