@@ -1,14 +1,16 @@
+import { useState } from "react";
+import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faUser } from "@fortawesome/free-solid-svg-icons";
-import classNames from "classnames/bind";
 
 import styles from "./Header.module.scss";
 import images from "~/assets/images";
 import Search from "../Search";
 import Button from "~/components/Button";
 import { AppIcon } from "~/components/Icons";
-import Menu from "~/components/Popper/Menu";
-
+import CategoryMenu from "~/components/Popper/CategoryMenu";
+import DeviceMenu from "~/components/Popper/DeviceMenu";
+import Modal from "~/components/Modal";
 const TheLoaiItems = [
   { title: "Anime", to: "/anime" },
   { title: "Bí Ẩn", to: "/bi-an" },
@@ -67,9 +69,24 @@ const TheLoaiItems = [
   { title: "Đau Thương", to: "/dau-thuong" },
   { title: "Đời Thường", to: "/doi-thuong" },
 ];
+const QuocGiaItems = [
+  { title: "Anh", to: "/anh" },
+  { title: "Canada", to: "/canada" },
+  { title: "Hàn Quốc", to: "/han-quoc" },
+  { title: "Hồng Kông", to: "/hong-kong" },
+  { title: "Mỹ", to: "/my" },
+  { title: "Nhật Bản", to: "/nhat-ban" },
+  { title: "Pháp", to: "/phap" },
+  { title: "Thái Lan", to: "/thai-lan" },
+  { title: "Trung Quốc", to: "/trung-quoc" },
+  { title: "Úc", to: "/uc" },
+  { title: "Đài Loan", to: "/dai-loan" },
+  { title: "Đức", to: "/duc" },
+];
 
 const cx = classNames.bind(styles);
 function Header() {
+  const [showModal, setShowModal] = useState(false);
   return (
     <header className={cx("wrapper")}>
       <div className={cx("inner")}>
@@ -81,7 +98,12 @@ function Header() {
           <Search />
           <div className={cx("nav-menu")}>
             <Button text>Chủ đề</Button>
-            <Menu items={TheLoaiItems} hideOnClick>
+            <CategoryMenu
+              items={TheLoaiItems}
+              hideOnClick
+              columnCount={4}
+              detailPath="/the-loai"
+            >
               <Button
                 text
                 rightIcon={<FontAwesomeIcon icon={faCaretDown} />}
@@ -89,7 +111,7 @@ function Header() {
               >
                 Thể loại
               </Button>
-            </Menu>
+            </CategoryMenu>
             <Button text>Phim Lẻ</Button>
             <Button text>Phim Bộ</Button>
             <Button text>
@@ -97,32 +119,45 @@ function Header() {
               Xem chung
             </Button>
 
-            <Button
-              text
-              rightIcon={<FontAwesomeIcon icon={faCaretDown} />}
-              noHover
+            <CategoryMenu
+              items={QuocGiaItems}
+              hideOnClick
+              detailPath="/quoc-gia"
             >
-              Quốc Gia
-            </Button>
+              <Button
+                text
+                rightIcon={<FontAwesomeIcon icon={faCaretDown} />}
+                noHover
+              >
+                Quốc Gia
+              </Button>
+            </CategoryMenu>
             <Button text>Diễn Viên </Button>
             <Button text>Lịch Chiếu</Button>
           </div>
         </div>
         <div className={cx("right-section")}>
+          <DeviceMenu hideOnClick>
+            <Button
+              className={cx("btn-download")}
+              text
+              leftIcon={<AppIcon />}
+              noHover
+            >
+              <p> Tải ứng dụng</p>
+              <strong> RoPhim</strong>
+            </Button>
+          </DeviceMenu>
           <Button
-            className={cx("btn-download")}
-            text
-            leftIcon={<AppIcon />}
-            noHover
+            rounded
+            leftIcon={<FontAwesomeIcon icon={faUser} />}
+            onClick={() => setShowModal(true)}
           >
-            <p> Tải ứng dụng</p>
-            <strong> RoPhim</strong>
-          </Button>
-          <Button primary leftIcon={<FontAwesomeIcon icon={faUser} />}>
             Thành viên
           </Button>
         </div>
       </div>
+      <Modal isOpen={showModal} onClose={() => setShowModal(false)} />
     </header>
   );
 }

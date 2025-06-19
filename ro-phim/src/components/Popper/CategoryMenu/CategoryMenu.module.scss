@@ -1,0 +1,39 @@
+.menu-list {
+  max-width: 576px;
+  background-color: rgba(15, 17, 26, 0.95) !important;
+  color: var(--white);
+}
+
+.menu-popper {
+  padding-bottom: 8px;
+}
+
+.menu-body {
+  display: block;
+  padding: 8px;
+  max-height: 576px;
+  overflow-y: overlay;
+  column-gap: 8px;
+}
+
+.column4 {
+  column-count: 4;
+}
+
+.menu-item {
+  display: block;
+  width: 140px;
+  line-height: 32px;
+  font-weight: 600;
+  padding: 3px 13px !important;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &:hover {
+    background-color: #ffffff05;
+    border-radius: 8px;
+    color: var(--primary);
+  }
+}

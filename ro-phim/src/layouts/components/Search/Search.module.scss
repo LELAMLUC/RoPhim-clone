@@ -15,8 +15,14 @@
     padding: 4px 48px 0 48px;
     line-height: 32px;
   }
+
   &:focus-within {
     border-color: var(--white);
+  }
+
+  input::placeholder {
+    color: #fff;
+    opacity: 1;
   }
 }
 .icon-search {
@@ -28,4 +34,85 @@
   flex-shrink: 0;
   padding: 3px;
   font-size: 16px;
+}
+
+.icon-clear {
+  font-size: 16px;
+  color: var(--white);
+  position: absolute;
+  right: 0.7rem;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+// css tippy
+
+.search-results {
+  border-radius: 0.4rem;
+  width: 360px;
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(15, 17, 26, 0.95) !important;
+}
+
+.search-title {
+  font-weight: 400;
+  font-size: 0.9em;
+  color: var(--text-base);
+  margin-bottom: 0.75rem;
+}
+.view-all {
+  font-size: 14px;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  background-color: #ffffff10;
+  margin: 12px -20px -12px -20px;
+  border-bottom-left-radius: 6.4px;
+  border-bottom-right-radius: 6.4px;
+
+  &:hover {
+    cursor: pointer;
+    color: var(--primary);
+  }
+}
+
+// loading
+
+.loading {
+  height: 76px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader {
+  width: 45px;
+  aspect-ratio: 1;
+  --c: no-repeat linear-gradient(#5b5d68 0 0);
+  background: var(--c) 0 50%, var(--c) 50% 50%, var(--c) 100% 50%;
+  background-size: 20% 100%;
+  animation: load 1s linear infinite;
+  transform: scale(0.9);
+  border-radius: 50%;
+}
+
+@keyframes load {
+  0% {
+    background-size: 20% 100%, 20% 100%, 20% 100%;
+  }
+
+  33% {
+    background-size: 20% 10%, 20% 100%, 20% 100%;
+  }
+  50% {
+    background-size: 20% 100%, 20% 10%, 20% 100%;
+  }
+  66% {
+    background-size: 20% 100%, 20% 100%, 20% 10%;
+  }
+  100% {
+    background-size: 20% 100%, 20% 100%, 20% 100%;
+  }
 }

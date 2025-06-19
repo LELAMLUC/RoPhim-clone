@@ -2,6 +2,7 @@
   --primary: #ffd875;
   --white: #fff;
   --black: #000;
+  --text-base: #aaa;
 }
 * {
   margin: 0;
@@ -9,13 +10,14 @@
   box-sizing: border-box;
 }
 html {
-  font-size: 62.5%;
+  font-size: 100%;
 }
 body {
+  font-weight: 400;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
     "Noto Sans", "Liberation Sans", Arial, sans-serif;
-  font-size: 1.4rem;
-  line-height: 1.5;
+  font-size: 14px;
+  line-height: 1.6;
   text-rendering: optimizeLegibility;
   overflow-y: overlay;
   background-color: #191b24;
@@ -30,12 +32,6 @@ input,
 a[href] {
   text-decoration: none;
   color: var(--text-color);
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: #fff;
-  opacity: 1;
 }
 
 // scrollbar-custom

@@ -1,23 +1,37 @@
 import classNames from "classnames/bind";
-import styles from "./Menu.module.scss";
+import styles from "./CategoryMenu.module.scss";
 import MenuItem from "./MenuItem";
 import Tippy from "@tippyjs/react/headless";
 import { Wrapper as PopperWrapper } from "~/components/Popper";
 
 const cx = classNames.bind(styles);
-function Menu({ children, items = [], hideOnClick = false }) {
+function CategoryMenu({
+  children,
+  items = [],
+  hideOnClick = false,
+  columnCount = 1,
+  detailPath = "",
+}) {
   const renderItems = () => {
     return items.map((item, index) => {
-      return <MenuItem key={index} data={item} />;
+      return <MenuItem key={index} data={item} detailPath={detailPath} />;
     });
   };
+
   const renderResult = (attrs) => (
     <div className={cx("menu-list")} tabIndex="-1" {...attrs}>
       <PopperWrapper className={cx("menu-popper")}>
-        <div className={cx("menu-body")}> {renderItems()}</div>
+        <div
+          className={cx("menu-body", {
+            column4: columnCount === 4,
+          })}
+        >
+          {renderItems()}
+        </div>
       </PopperWrapper>
     </div>
   );
+
   return (
     <Tippy
       trigger="click"
@@ -32,4 +46,4 @@ function Menu({ children, items = [], hideOnClick = false }) {
     </Tippy>
   );
 }
-export default Menu;
+export default CategoryMenu;

@@ -1,0 +1,37 @@
+.menu-list {
+  border-radius: 16px;
+
+  margin-top: 4px;
+  box-shadow: 0 10px 10px 3px #0001;
+  background-color: var(--white) !important;
+}
+
+.menu-popper {
+}
+
+.menu-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 256px;
+  padding: 8px 16px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+  }
+}
+
+.body {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  gap: 8px;
+}

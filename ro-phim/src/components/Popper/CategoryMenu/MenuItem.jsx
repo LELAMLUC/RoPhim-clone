@@ -1,13 +1,13 @@
 import classNames from "classnames/bind";
-import styles from "./Menu.module.scss";
+import styles from "./CategoryMenu.module.scss";
 import Button from "~/components/Button";
 import PropTypes from "prop-types";
 const cx = classNames.bind(styles);
-function MenuItem({ data, onClick }) {
+function MenuItem({ data, onClick, detailPath }) {
   return (
     <Button
       className={cx("menu-item")}
-      to={"the-loai" + data.to}
+      to={detailPath + data.to}
       onClick={onClick}
     >
       {data.title}

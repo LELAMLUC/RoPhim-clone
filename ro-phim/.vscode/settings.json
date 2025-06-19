@@ -3,5 +3,4 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "scss.validate": true,
   "scss.lint.unknownAtRules": "ignore"
-  
 }
