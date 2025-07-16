@@ -1,0 +1,174 @@
+.top-slide {
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: grab;
+  &:active {
+    cursor: grabbing;
+  }
+  &::before {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-image: url(/assets/images/dotted.png);
+    background-repeat: repeat;
+    opacity: 0.2;
+    z-index: 1;
+  }
+}
+
+.slide-element {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 700px;
+  background-color: #202331;
+}
+
+.background-fade {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-position: 50%;
+  background-size: cover;
+  filter: blur(50px);
+  -webkit-filter: blur(80px);
+  opacity: 0.2;
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+  mask-image: linear-gradient(
+    90deg,
+    transparent 10px,
+    rgba(0, 0, 0, 0.2) 15%,
+    black 40%,
+    black 80%,
+    transparent 99%
+  );
+  img {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+    -webkit-mask-image: linear-gradient(
+      0deg,
+      transparent 0,
+      black 20%,
+      black 80%,
+      transparent
+    );
+  }
+}
+
+//slide content
+.anchor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 660px;
+  z-index: 2;
+}
+.slide-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0 30px 60px;
+  max-width: 600px;
+}
+
+.title {
+  margin-bottom: 16px;
+  img {
+    max-width: 500px;
+    max-height: 130px;
+  }
+}
+
+.alias-title {
+  font-size: 1.1em;
+  line-height: 1.5;
+  font-weight: 300;
+  margin-bottom: 16px;
+  color: var(--primary);
+}
+
+.tags,
+.genres-tags {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.genres-tags {
+  margin-bottom: 24px;
+}
+
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--white);
+  margin-bottom: 32px;
+}
+
+.touch {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.touch-group {
+  display: inline-flex;
+  align-items: center;
+  border: 2px solid #ffffff10;
+  border-radius: 30px;
+  overflow: hidden;
+
+  &:hover {
+    border-color: var(--white);
+  }
+}
+
+.item {
+  color: var(--white) !important;
+  height: 50px;
+  min-width: 68px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0.2rem;
+  gap: 0.3rem;
+  position: relative;
+
+  &:hover {
+    color: var(--primary) !important;
+  }
+}
+
+//swipper Thumb
+.swipper-wrapper {
+  position: absolute;
+  right: 30px;
+  bottom: 110px;
+  display: flex;
+  width: 450px;
+  z-index: 2;
+}

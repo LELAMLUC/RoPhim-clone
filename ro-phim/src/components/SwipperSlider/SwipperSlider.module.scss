@@ -1,0 +1,26 @@
+.swipper-slide {
+  width: 70.8333px;
+  height: 45px;
+  margin-right: 5px;
+  border: 2px solid #ffffff24;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transform: scale(0.95);
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--white);
+  }
+  img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    background-color: #282b3a;
+  }
+}
+
+.active {
+  transform: scale(1);
+  border-color: var(--white);
+  -webkit-transition: all 0.3s ease 0s;
+}

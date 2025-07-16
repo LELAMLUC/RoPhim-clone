@@ -1,0 +1,50 @@
+.wrapper {
+  cursor: default;
+  display: inline-block;
+  line-height: 24px;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 0.33rem;
+  color: var(--white);
+}
+
+.imdb {
+  background-color: transparent;
+  padding: 0 0.4rem;
+  border: 1px solid #f0d25c;
+
+  &::before {
+    content: "IMDb";
+    color: #f0d25c;
+    position: relative;
+    font-weight: 500;
+    padding-right: 4px;
+    font-size: 10px;
+    line-height: 1;
+  }
+}
+
+.model {
+  color: var(--black);
+  padding: 0 0.5rem;
+  font-weight: 700;
+  background-color: var(--white);
+}
+
+.classic {
+  background-color: #ffffff10;
+  border: 1px solid var(--white);
+  padding: 0 0.4rem;
+}
+
+.topic {
+  color: var(--white) !important;
+  background-color: #ffffff10;
+  padding: 0 0.4rem;
+  height: 26px;
+  &:hover {
+    color: var(--primary) !important;
+    cursor: pointer;
+  }
+}

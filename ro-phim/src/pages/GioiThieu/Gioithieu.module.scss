@@ -1,0 +1,141 @@
+.body {
+  width: 100%;
+  height: 100%;
+  background-image: url("https://www.rophim.me/images/home-background.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #14161e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  max-width: 1120px;
+  height: 100%;
+  margin: 0 200px;
+  padding: 0 20px;
+}
+
+.board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 3rem;
+  width: 1080px;
+  height: auto;
+  padding: 6rem 8rem;
+  margin: 15rem auto 8rem;
+  border-radius: 2rem;
+  background-color: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(20px);
+}
+
+.logo {
+  img {
+    height: 60px;
+  }
+}
+
+.heading-text {
+  color: var(--white);
+  text-align: center;
+  font-size: 2.6em;
+  font-weight: 500;
+}
+
+.button-play {
+  display: block;
+  transform: scale(1.1);
+  min-height: 60px;
+  padding: 0.95rem 2rem;
+  border-radius: 2rem;
+  background: linear-gradient(
+    39deg,
+    rgba(254, 207, 89, 1),
+    rgba(255, 241, 204, 1)
+  );
+}
+
+.line-center {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 8px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+// main
+
+.main {
+  max-width: 1120px;
+  width: 100%;
+  padding: 0 20px 4rem 20px;
+}
+
+.about {
+  font-size: 1.1em;
+  line-height: 1.7;
+  color: #cfcfcf;
+  padding: 0 6rem;
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1.6em;
+    margin: 1.5rem 0;
+    color: var(--primary);
+  }
+  h3 {
+    font-size: 1.4em;
+    margin: 0 0 1.25rem;
+    color: var(--white);
+  }
+  h4 {
+    font-size: 1.2em;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+    line-height: 1.6;
+    font-weight: 500;
+  }
+  ul {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+  }
+}
+
+//footer
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--text-base);
+}
+.first-menu {
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+}
+
+.second-menu {
+  padding-bottom: 4rem;
+
+  a {
+    color: var(--white);
+  }
+}
+
+.first-menu,
+.second-menu {
+  a {
+    &:hover {
+      color: var(--primary);
+    }
+  }
+}
