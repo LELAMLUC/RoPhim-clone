@@ -1,0 +1,166 @@
+@use "./Mixin/Mixins.scss" as *;
+
+.content {
+}
+
+.slide {
+  position: relative;
+}
+
+.nav {
+}
+
+.swiper {
+  overflow: hidden;
+  list-style: none;
+}
+
+.swiper-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: relative;
+}
+
+.title {
+  color: var(--white);
+  font-weight: 400;
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+  width: 283.4px;
+  height: 100%;
+  position: relative;
+  transition-property: transform;
+  margin-right: 16px;
+  cursor: pointer;
+
+  .mask {
+    @include clipBaseShape;
+  }
+  img {
+    @include clipBaseShape;
+  }
+}
+
+.swiper-slide:nth-child(even) {
+  .mask {
+    @include clipInvertedShape;
+  }
+  img {
+    @include clipInvertedShape;
+  }
+}
+
+.thumpnail {
+  width: 100%;
+  padding-bottom: 150%;
+  height: 0;
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  display: block;
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    object-fit: cover;
+    transition: all 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+      width: calc(100% - 8px);
+      height: calc(100% - 8px);
+      top: 4px;
+      left: 4px;
+    }
+  }
+}
+
+.mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  object-fit: cover;
+  background-color: var(--primary);
+}
+
+.info {
+  position: relative;
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-left: 66px;
+}
+
+.number {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50px;
+  line-height: 1;
+  text-align: center;
+  font-size: 4.2em;
+  font-weight: 800;
+  font-style: italic;
+  background: linear-gradient(
+    39deg,
+    rgba(254, 207, 89, 1),
+    rgba(255, 241, 204, 1)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.alias-title {
+  color: var(--text-base);
+  font-size: 0.9em;
+}
+
+.tag {
+  display: flex;
+  color: var(--white);
+}
+
+.tag-small {
+  position: relative;
+  font-size: 0.9em;
+}
+
+.tag-small:not(:first-child) {
+  margin-left: 10px;
+  padding-left: 10px;
+  &::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    display: inline-block;
+    background-color: #ffffff30;
+    position: absolute;
+    left: -3px;
+    top: calc(50% - 3px);
+    border-radius: 50%;
+  }
+}

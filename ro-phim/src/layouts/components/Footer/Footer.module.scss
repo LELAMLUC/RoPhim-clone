@@ -1,0 +1,89 @@
+.wrapper {
+  padding: 0 20px;
+  background-color: #0f111a;
+}
+
+.inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  height: auto;
+  min-height: auto;
+}
+
+.side-left {
+  max-width: 750px;
+  position: relative;
+}
+
+.Viet-Nam {
+  margin-bottom: 1.5rem;
+}
+
+.center {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 14px;
+  color: #fff;
+  padding: 0.5rem 0.7rem;
+  border-radius: 2rem;
+  background-color: #78140f;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.line-center {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  img {
+    height: 60px;
+    width: auto;
+  }
+}
+
+.social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-left: 3rem;
+  border-left: 1px solid #ffffff10;
+}
+
+.menu {
+  margin-bottom: 1rem;
+  color: var(--white);
+  a {
+    margin-right: 1.5rem;
+    white-space: nowrap;
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
+}
+
+.notice {
+  color: var(--text-base);
+  margin-bottom: 0.5rem;
+}
+
+.copy-right {
+  color: var(--text-base);
+}

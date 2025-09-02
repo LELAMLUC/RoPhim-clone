@@ -1,0 +1,146 @@
+.top-discuss {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #fff2;
+}
+
+.top-title {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: var(--primary);
+  line-height: 1.5;
+  font-size: 16px;
+  letter-spacing: 1.5px;
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+  span {
+    color: var(--white);
+  }
+}
+
+.top-list {
+  position: relative;
+}
+
+.prev,
+.next {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #fff3;
+  border-radius: 50%;
+  bottom: 50%;
+  color: var(--white);
+  background-color: #191b24;
+}
+
+.prev {
+  left: -50px;
+}
+
+.next {
+  right: -50px;
+}
+
+.swipper-wrapper {
+  display: flex;
+  overflow: hidden;
+}
+
+.swipper-slide {
+  flex-shrink: 0;
+  width: 270.2px;
+  margin-right: 16px;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  padding: 1.2rem;
+  border-radius: 0.6rem;
+  overflow: hidden;
+}
+
+.poster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(5px);
+  transform: scale(1.1);
+  z-index: -1;
+  mask-image: linear-gradient(180deg, black 0, transparent 80%);
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.avatar {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  overflow: hidden;
+  object-fit: cover;
+
+  img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  color: #fff9;
+}
+
+.name {
+  font-size: 1em;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.comment {
+  font-size: 13px;
+  height: 42px;
+  margin-bottom: 3px;
+}
+
+.tag-comment {
+  display: flex;
+  gap: 1rem;
+  font-size: 12px;
+  margin-top: 0.5rem;
+
+  span {
+    margin-left: 0.3rem;
+  }
+}
+
+.thump {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  width: 50px;
+  img {
+    border-radius: 0.3rem;
+    width: 100%;
+    height: 100%;
+  }
+}

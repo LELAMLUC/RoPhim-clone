@@ -1,0 +1,129 @@
+.header {
+  min-height: 44px;
+  margin-bottom: 1.2rem;
+  font-size: 1.8em;
+  font-weight: 600;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  padding: 0 0.75rem 0 0.5rem;
+  font-size: 1.1em;
+  height: 30px;
+  font-weight: 500;
+
+  .icon-filter {
+    font-size: 12px;
+  }
+}
+
+.filter-element {
+  border-radius: 0.75rem;
+  border: 1px solid #ffffff10;
+  padding: 1rem 0 0;
+  margin-top: -15px;
+  margin-bottom: 3rem;
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px dashed #ffffff10;
+}
+.name {
+  width: 120px;
+  padding: 0.3rem 0;
+  text-align: right;
+  flex-shrink: 0;
+  font-weight: 500;
+  color: #fff;
+}
+.result {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+.item-1 {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid transparent;
+  border-radius: 0.4rem;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.active {
+  border-color: #fff3;
+  color: var(--primary);
+  opacity: 1 !important;
+}
+.content {
+}
+
+.cards-grids {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 1rem;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.thump {
+  width: 100%;
+  padding-bottom: 150%;
+  height: 0;
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  display: block;
+  background-color: #2f3346;
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    object-fit: cover;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.info {
+  min-height: 42px;
+  text-align: center;
+}
+
+.title,
+.alias-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal !important;
+}
+
+.alias-title {
+  color: var(--text-base);
+  font-size: 0.9em;
+  margin-top: 5px;
+}

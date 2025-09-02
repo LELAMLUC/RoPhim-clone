@@ -2,8 +2,12 @@ const routes = {
   gioiThieu: "/",
   trangChu: "/phimhay",
   chuDe: "/chu-de",
-  phimle: "/phim-le",
+  theLoai: "/the-loai/:slug",
+  phimLe: "/phim-le",
+  phimbo: "/phim-bo",
   xemChung: "/xem-chung",
+  quocGia: "/quoc-gia/:slug",
+  dienVien: "/dien-vien",
 };
 
 export default routes;

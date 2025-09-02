@@ -12,6 +12,7 @@ function Input({
   placeholder = "",
   onChange,
   value,
+  name,
   showToggleIcon = false,
 }) {
   const [showPassword, setShowPassword] = useState(false);
@@ -33,6 +34,7 @@ function Input({
         placeholder={placeholder}
         onChange={onChange}
         value={value}
+        name={name}
       />
       {isPassword && showToggleIcon && (
         <span className={cx("icon")} onClick={handleToggle}>

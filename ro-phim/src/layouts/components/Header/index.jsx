@@ -1,37 +1,50 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown, faUser } from "@fortawesome/free-solid-svg-icons";
 
-import styles from "./Header.module.scss";
-import images from "~/assets/images";
+import { useAuth } from "~/context/AuthContext";
 import Search from "../Search";
+import images from "~/assets/images";
 import Button from "~/components/Button";
+import styles from "./Header.module.scss";
 import { AppIcon } from "~/components/Icons";
-import CategoryMenu from "~/components/Popper/CategoryMenu";
+import UserMenu from "~/components/Popper/UserMenu";
 import DeviceMenu from "~/components/Popper/DeviceMenu";
+import CategoryMenu from "~/components/Popper/CategoryMenu";
+import NotificationMenu from "~/components/Popper/NotificationMenu";
 import Modal from "~/components/Modal";
-import * as genresService from "~/services/genresService";
-import * as countryService from "~/services/countryService";
+import { faBell, faCaretDown, faUser } from "@fortawesome/free-solid-svg-icons";
+
+import { GenreAPI } from "~/apis/GenreApi";
+import { CountryAPI } from "~/apis/CountryApi";
 
 const cx = classNames.bind(styles);
+
 function Header() {
   const [showModal, setShowModal] = useState(false);
-  const [TheLoaiItems, setTheLoaiItems] = useState([]);
-  const [QuocGiaItems, setQuocGiaItems] = useState([]);
+  const [quocGiaItems, setQuocGiaItems] = useState([]);
+  const [theLoaiItems, setTheLoaiItems] = useState([]);
+
+  const { isLogin } = useAuth();
+
   useEffect(() => {
-    const fetchGenres = async () => {
-      const result = await genresService.getGenres();
-      setTheLoaiItems(result);
+    const fetchData = async () => {
+      try {
+        const [genres, countries] = await Promise.all([
+          GenreAPI.getAllGenres(),
+          CountryAPI.getAllCountries(),
+        ]);
+
+        setTheLoaiItems(genres);
+        setQuocGiaItems(countries);
+      } catch (err) {
+        console.error("Fetch Header data error:", err);
+      }
     };
 
-    const fetchCountry = async () => {
-      const result = await countryService.getCountries();
-      setQuocGiaItems(result);
-    };
-    fetchGenres();
-    fetchCountry();
+    fetchData();
   }, []);
+
   return (
     <header className={cx("wrapper")}>
       <div className={cx("inner")}>
@@ -39,12 +52,15 @@ function Header() {
           {/* logo */}
           <img className={cx("logo")} src={images.logo} alt="Ro-phim" />
 
-          {/* search  */}
+          {/* search */}
           <Search />
           <div className={cx("nav-menu")}>
-            <Button text>Chủ đề</Button>
+            <Button href={"/chu-de"} text>
+              Chủ đề
+            </Button>
+
             <CategoryMenu
-              items={TheLoaiItems}
+              items={theLoaiItems}
               hideOnClick
               columnCount={4}
               detailPath="/the-loai"
@@ -57,15 +73,20 @@ function Header() {
                 Thể loại
               </Button>
             </CategoryMenu>
-            <Button text>Phim Lẻ</Button>
-            <Button text>Phim Bộ</Button>
+
+            <Button href={"/phim-le"} text>
+              Phim Lẻ
+            </Button>
+            <Button href={"/phim-bo"} text>
+              Phim Bộ
+            </Button>
             <Button text>
               <span className={cx("label-new")}>NEW</span>
               Xem chung
             </Button>
 
             <CategoryMenu
-              items={QuocGiaItems}
+              items={quocGiaItems}
               hideOnClick
               detailPath="/quoc-gia"
             >
@@ -77,10 +98,14 @@ function Header() {
                 Quốc Gia
               </Button>
             </CategoryMenu>
-            <Button text>Diễn Viên </Button>
+
+            <Button href={"/dien-vien"} text>
+              Diễn Viên
+            </Button>
             <Button text>Lịch Chiếu</Button>
           </div>
         </div>
+
         <div className={cx("right-section")}>
           <DeviceMenu hideOnClick>
             <Button
@@ -93,15 +118,42 @@ function Header() {
               <strong> RoPhim</strong>
             </Button>
           </DeviceMenu>
-          <Button
-            rounded
-            leftIcon={<FontAwesomeIcon icon={faUser} />}
-            onClick={() => setShowModal(true)}
-          >
-            Thành viên
-          </Button>
+
+          {!isLogin && (
+            <Button
+              rounded
+              leftIcon={<FontAwesomeIcon icon={faUser} />}
+              onClick={() => setShowModal(true)}
+            >
+              Thành viên
+            </Button>
+          )}
+
+          {isLogin && (
+            <div className={cx("user-logged")}>
+              <NotificationMenu hideOnClick>
+                <div className={cx("head-noti")}>
+                  <a href="#">
+                    <FontAwesomeIcon icon={faBell} />
+                  </a>
+                </div>
+              </NotificationMenu>
+              <UserMenu>
+                <div className={cx("head-user")}>
+                  <div className={cx("user-avatar")}>
+                    <img
+                      alt="Le Lam Luc"
+                      src="https://www.rophim.me/images//avatars/pack4/12.jpg"
+                    />
+                  </div>
+                  <FontAwesomeIcon icon={faCaretDown} />
+                </div>
+              </UserMenu>
+            </div>
+          )}
         </div>
       </div>
+
       <Modal isOpen={showModal} onClose={() => setShowModal(false)} />
     </header>
   );

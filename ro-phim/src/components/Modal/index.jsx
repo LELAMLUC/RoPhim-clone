@@ -10,19 +10,18 @@ const cx = classNames.bind(styles);
 function Modal({ isOpen, onClose }) {
   const [modalType, setModalType] = useState("login");
 
-  if (!isOpen) return null;
-
   const renderModalContent = () => {
     switch (modalType) {
       case "register":
-        return <Register onSwitch={setModalType} />;
+        return <Register onSwitch={setModalType} onClose={onClose} />;
       case "forgetpass":
         return <ForgetPass onSwitch={setModalType} />;
-      case "login":
       default:
-        return <Login onSwitch={setModalType} />;
+        return <Login onSwitch={setModalType} onClose={onClose} />;
     }
   };
+
+  if (!isOpen) return null;
 
   return (
     <div className={cx("overlay")} onClick={onClose}>

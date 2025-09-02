@@ -1,0 +1,42 @@
+.wrapper {
+}
+.cards-row {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.collection {
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  position: relative;
+  min-height: 44px;
+  margin-bottom: 1.2rem;
+  color: var(--white);
+
+  h2 {
+    font-size: 1.8em;
+    line-height: 1.4;
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 0 2px 1px rgba(0, 0, 0, 0.3);
+  }
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    border-radius: 2rem;
+    border: 1px solid #fff5;
+    font-size: 14px;
+    justify-content: center;
+  }
+}

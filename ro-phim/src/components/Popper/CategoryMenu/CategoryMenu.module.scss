@@ -10,7 +10,7 @@
 }
 
 .menu-body {
-  display: block;
+  display: grid;
   padding: 8px;
   max-height: 576px;
   overflow-y: overlay;
@@ -18,20 +18,19 @@
 }
 
 .column4 {
-  column-count: 4;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .menu-item {
   display: block;
   width: 140px;
   line-height: 32px;
-  font-weight: 600;
-  padding: 3px 13px !important;
-
+  padding: 0.2rem 0.8rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-
+  font-weight: 400;
+  font-size: 13px;
   &:hover {
     background-color: #ffffff05;
     border-radius: 8px;

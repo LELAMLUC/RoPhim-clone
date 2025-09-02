@@ -7,7 +7,7 @@ function MenuItem({ data, onClick, detailPath }) {
   return (
     <Button
       className={cx("menu-item")}
-      to={detailPath + data.slug}
+      to={`${detailPath}/${data.slug}`}
       onClick={onClick}
     >
       {data.name}

@@ -1,4 +1,4 @@
-import * as request from "~/utils/httpRequest";
+import * as request from "~/apis/configs/httpRequest";
 
 export const getCountries = async () => {
   try {

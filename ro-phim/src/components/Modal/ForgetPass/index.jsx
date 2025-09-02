@@ -1,4 +1,4 @@
-import Input from "~/components/Input/Index";
+import Input from "~/components/Input";
 import styles from "./ForgetPass.module.scss";
 import classNames from "classnames/bind";
 import Button from "~/components/Button";
